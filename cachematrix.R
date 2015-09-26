@@ -1,6 +1,7 @@
 ## Gives the user the inverse of a given matrix by calculating it and caching the result, or
 ## by looking for a cached result and retreiving it. 
 
+
 ## Creates functions for caching the matrix and its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -19,14 +20,12 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Returns the inverse of a given matrix 
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  ##x <- makeCacheMatrix(x)
   inverse <- x$getinv()
   if(!is.null(inverse)) {
     message("Getting cached data...")
     return(inverse)
   }
-  ## data <- x$get()  ## why this step? we already have x?
+  
   inverse <- solve(x$get())
   x$setinv(inverse)
   inverse
